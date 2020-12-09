@@ -1,0 +1,37 @@
+---
+
+- name: window script
+  hosts: all
+  tasks:
+  - name: Deny user
+    win_acl:
+      path: C:\Program Files
+      user: Intern
+      rights: Read,Write,Modify,FullControl,Delete
+      type: deny
+      state: present
+
+  - name: allow user
+    win_acl:
+      path: C:\Program Files (x86)\Internet Explorer
+      rights: FullControl
+      state: present
+      type: allow
+      user: Intern
+
+  - name: allow user
+    win_acl:
+      path: C:\Program Files (x86)\Internet Explorer
+      rights: FullControl
+      state: present
+      type: allow
+      user: Intern
+   
+   - name: allow user
+    win_acl:
+      path: C:\Program Files (x86)\Notepad++
+      rights: FullControl
+      state: present
+      type: allow
+      user: Intern
+     
